@@ -8,7 +8,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://moodify-frontend-pearl.vercel.app/",
     credentials: true,
   }),
 );
