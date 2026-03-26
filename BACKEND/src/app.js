@@ -32,7 +32,7 @@ const publicPath = path.join(__dirname, "../public");
 app.use(express.static(publicPath));
 
 // 🔹 Catch-all route for SPA support
-app.get("*", (req, res) => {
+app.use((req, res) => {
   if (!req.path.startsWith("/api")) {
     res.sendFile(path.join(publicPath, "index.html"));
   }
