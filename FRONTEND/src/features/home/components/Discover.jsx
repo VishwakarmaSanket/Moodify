@@ -9,7 +9,12 @@ const MOOD_CONFIG = {
   energetic: { label: "En", color: "#EF9F27", emoji: "⚡", fullName: "Energy" },
   energy: { label: "En", color: "#EF9F27", emoji: "⚡", fullName: "Energy" },
   angry: { label: "An", color: "#E24B4A", emoji: "😠", fullName: "Angry" },
-  surprised: { label: "Su", color: "#9c27b0", emoji: "😮", fullName: "Surprised" },
+  surprised: {
+    label: "Su",
+    color: "#9c27b0",
+    emoji: "😮",
+    fullName: "Surprised",
+  },
   neutral: { label: "Ne", color: "#888888", emoji: "😐", fullName: "Neutral" },
 };
 
@@ -35,17 +40,19 @@ const Discover = ({ onMoodSelect, refreshTrigger }) => {
           getMoodHistory(),
           getMoodStats(),
         ]);
-        
+
         if (historyRes.success) {
           setHistory(historyRes.mood);
         }
-        
+
         if (statsRes.success) {
           // Convert moodCounts object to array for mapping
-          const statsArray = Object.entries(statsRes.moodCounts).map(([mood, percentage]) => ({
-            mood,
-            percentage
-          }));
+          const statsArray = Object.entries(statsRes.moodCounts).map(
+            ([mood, percentage]) => ({
+              mood,
+              percentage,
+            }),
+          );
           setStats(statsArray);
         }
       } catch (error) {
@@ -68,7 +75,8 @@ const Discover = ({ onMoodSelect, refreshTrigger }) => {
             <p>Loading stats...</p>
           ) : stats.length > 0 ? (
             stats.map((item, index) => {
-              const config = MOOD_CONFIG[item.mood.toLowerCase()] || MOOD_CONFIG.neutral;
+              const config =
+                MOOD_CONFIG[item.mood.toLowerCase()] || MOOD_CONFIG.neutral;
               return (
                 <div key={index} className="barWrapper">
                   <div
@@ -112,12 +120,19 @@ const Discover = ({ onMoodSelect, refreshTrigger }) => {
             <p>Loading history...</p>
           ) : history.length > 0 ? (
             history.map((item, index) => {
-              const config = MOOD_CONFIG[item.mood.toLowerCase()] || MOOD_CONFIG.neutral;
+              const config =
+                MOOD_CONFIG[item.mood.toLowerCase()] || MOOD_CONFIG.neutral;
               const date = new Date(item.date);
-              const timeString = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+              const timeString = date.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+              });
               return (
                 <div key={index} className="historyItem">
-                  <span className="dot" style={{ background: config.color }}></span>
+                  <span
+                    className="dot"
+                    style={{ background: config.color }}
+                  ></span>
                   <p>{config.fullName}</p>
                   <span className="time">{timeString}</span>
                 </div>

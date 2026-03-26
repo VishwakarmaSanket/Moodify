@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "http://localhost:3000/api/mood",
+  baseURL: "https://moodify-9aub.onrender.com//api/mood",
   withCredentials: true,
 });
 
@@ -15,7 +15,7 @@ export async function getMoodStats() {
   return response.data;
 }
 
-export async function saveMood(mood) {
-  const response = await api.post("/save", { mood });
+export async function saveMood() {
+  const response = await api.post("/save");
   return response.data;
 }
