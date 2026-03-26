@@ -1,8 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  // baseURL: "https://moodify-9aub.onrender.com/api/auth",
-  baseURL: import.meta.env.VITE_API_URL,
+  baseURL: "/api/auth",
   withCredentials: true,
 });
 
@@ -17,7 +16,7 @@ export async function register({ email, username, password }) {
 }
 
 export async function login({ email, password }) {
-  const response = await api.post("/auth/login", {
+  const response = await api.post("/login", {
     email,
     password,
   });
@@ -25,11 +24,11 @@ export async function login({ email, password }) {
 }
 
 export async function getMe() {
-  const response = await api.get("/auth/get-me");
+  const response = await api.get("/get-me");
   return response.data;
 }
 
 export async function logout() {
-  const response = await api.get("/auth/logout");
+  const response = await api.get("/logout");
   return response.data;
 }
