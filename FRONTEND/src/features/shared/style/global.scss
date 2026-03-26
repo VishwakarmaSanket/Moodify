@@ -1,0 +1,16 @@
+@use "button.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+    width: 100%;
+    font-family: Montserrat, Poppins, system-ui, Montserrat, sans-serif;
+    background-color: #111;
+    color: #fff;
+}

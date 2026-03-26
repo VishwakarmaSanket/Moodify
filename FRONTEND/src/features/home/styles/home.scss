@@ -1,0 +1,115 @@
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+
+    .navbar {
+        width: 100%;
+        height: 8%;
+        flex-shrink: 0;
+        background-color: #161616;
+        border-bottom: 1px solid #444444b3;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        padding-inline: 1rem;
+        padding-block: 0.8rem;
+
+        .left-nav {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            gap: 0.2rem;
+
+            h1 {
+                font-family: Onest Regular;
+                font-size: 1.2rem;
+                font-weight: 400;
+            }
+        }
+
+        .mid-nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 2;
+
+            .search {
+                input {
+                    padding: 0.8rem 1.6rem;
+                    border: none;
+                    outline: none;
+                    border-radius: 2rem;
+                    background-color: #44444414;
+                    border: 0.8px solid #44444471;
+                    font-family: Onest Regular;
+                    font-size: 0.9rem;
+
+                }
+            }
+        }
+
+        .right-nav {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            flex: 1;
+        }
+    }
+
+    .app-body {
+        width: 100%;
+        flex: 1;
+        min-height: 0; // ← THIS is what fixes the overflow
+        display: flex;
+        overflow: hidden;
+
+        .left-panel {
+            flex: 3;
+            height: 100%;
+            background-color: #22222269;
+            border-right: 1px solid #444444b3;
+            display: flex;
+            align-items: start;
+            justify-content: center;
+            padding-block: 1rem;
+        }
+
+        .central-panel {
+            // ← fixed typo "centeral" → "central"
+            flex: 4;
+            height: 100%;
+            background-color: #2222222f;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .right-panel {
+            flex: 3;
+            height: 100%;
+            background-color: #22222269;
+            border-left: 1px solid #444444b3;
+
+        }
+    }
+
+    .player-container {
+        width: 100%;
+        height: 12%;
+        flex-shrink: 0;
+        background-color: #161616;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-top: 1px solid #444444b3;
+        overflow: visible;
+        padding-block: 0.2 rem;
+    }
+}
