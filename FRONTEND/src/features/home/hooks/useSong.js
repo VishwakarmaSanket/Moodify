@@ -62,6 +62,8 @@ const useSong = () => {
     activeSongIndex,
     loading,
     getSongHandler,
+    setPlaylist,
+    setActiveSongIndex,
     playNext,
     playPrev,
     playSongAt,
